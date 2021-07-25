@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: white;
 }
 
 .App-logo {
@@ -35,4 +36,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+span.sr-only {
+  display: none;
+}
+
+.page-wrap {
+  min-height: 74vh;
 }
