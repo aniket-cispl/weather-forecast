@@ -5,9 +5,14 @@ import {
 
 function WeatherForecastRecords({ forecast, apiIconPath, days, months }) {
 
+  let today = new Date()
+  let todayDDMMYYYY = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+
   let resultantRecords = forecast && forecast.map((item,k) => {
+    let date = new Date(item.dt * 1000);
+    let dateDDMMYYYY = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear();
+
     return {
-      dateTimstamp: item.dt,
       temperature: item.main.temp,
       highestTemp: item.main.temp_max,
       lowestTemp: item.main.temp_min,
@@ -17,9 +22,13 @@ function WeatherForecastRecords({ forecast, apiIconPath, days, months }) {
       icon: apiIconPath + item.weather[0].icon + '.png',
       clouds: item.clouds.all,
       wind: item.wind.speed,
+      year: parseInt(item.dt_txt.slice(0, 4)),
       month: parseInt(item.dt_txt.slice(5, 7)),
       date: parseInt(item.dt_txt.slice(8, 10)),
-      hour: item.dt_txt.slice(11, 13) * 1
+      day: days[date.getDay()],
+      hour: item.dt_txt.slice(11, 13) * 1,
+      isToday: todayDDMMYYYY === dateDDMMYYYY,
+      dateTimstamp: item.dt,
     }
   })
 
@@ -30,6 +39,7 @@ function WeatherForecastRecords({ forecast, apiIconPath, days, months }) {
     }
   })
 
+
   return (
     <>
       <CardGroup className="mt-4">
@@ -37,7 +47,9 @@ function WeatherForecastRecords({ forecast, apiIconPath, days, months }) {
           finalForeCastRecords.map((item) => (
             <Card key={item.dateTimstamp}>
               <CardBody>
-                <CardTitle tag="h5">{months[(item.month-1)]} {item.date} </CardTitle>
+                <CardTitle tag="h6" className={item.isToday ? "text-primary" : "text-dark"}><small>{item.day}</small></CardTitle>
+                <CardTitle tag="h5" className={item.isToday ? "text-primary" : "text-dark"}>{months[(item.month-1)]} {item.date}</CardTitle>
+                <CardSubtitle></CardSubtitle>
                 <CardSubtitle><small><img top width="50px" src={item.icon} alt="Card image cap" /> {item.main} <span className="text-muted">({item.temperature}°)</span></small></CardSubtitle>
                 <hr/>
                 <CardText className="mb-2">High: <span className="text-muted">{item.highestTemp}°</span></CardText>

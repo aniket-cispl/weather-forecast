@@ -11,7 +11,7 @@ function Header({ days, months }) {
       <header className="">
         <div className="d-flex justify-content-between p-3">
           <div className="">
-            <h6><img top width="50px" src={logoImg} alt="Card image cap" /> WEATHER FORECAST PORTAL</h6>
+            <h6><img top width="50px" src={logoImg} alt="Card image cap" className="logoImg" /> WEATHER FORECAST PORTAL</h6>
           </div>
 
           <div className="">
