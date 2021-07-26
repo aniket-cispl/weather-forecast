@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  InputGroup, Input, Container, Spinner
+  Input, Container, Spinner
 } from 'reactstrap';
 
 function SearchLocation({ value, change, submit, isProcessing }) {
