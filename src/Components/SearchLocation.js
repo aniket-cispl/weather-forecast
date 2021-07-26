@@ -24,6 +24,7 @@ SearchLocation.propTypes = {
   value: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
+  isProcessing: PropTypes.bool.isRequired
 };
 
 export default SearchLocation;
