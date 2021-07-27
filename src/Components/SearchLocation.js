@@ -11,7 +11,7 @@ function SearchLocation({ value, change, submit, isProcessing }) {
       <Container className="themed-container" className="">
         <div className="searchLocation col-sm-12 col-md-6 offset-md-3">
           <form className="SearchBar d-flex" onSubmit={submit}>
-            <Input placeholder="Enter any location..." onChange={change} value={value} />&nbsp;&nbsp;&nbsp;&nbsp;
+            <Input placeholder="Enter any city..." onChange={change} value={value} />&nbsp;&nbsp;&nbsp;&nbsp;
             { isProcessing && <Spinner type="grow" color="dark" />}
           </form>
         </div>

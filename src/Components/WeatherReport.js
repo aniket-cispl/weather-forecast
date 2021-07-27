@@ -21,13 +21,10 @@ function WeatherReport({ weatherInfo }) {
       <Card>
         <CardBody>
           <h1>{city}, {country}</h1>
-          <CardTitle tag="h5"><img top width="50px" src={icon} alt="Card image cap" /> {main} ({temp}°)</CardTitle>
+          <CardTitle tag="h5"><img top width="50px" src={icon} alt="Card image cap" /> {main} ({temp}&#176;)</CardTitle>
           <CardText>
             Sunrise: <span className="text-muted">{sunrise}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Sunset: <span className="text-muted">{sunset}</span>
-          </CardText>
-          <CardText>
-            Clouds: <span className="text-muted">{clouds}</span>
           </CardText>
         </CardBody>
       </Card>

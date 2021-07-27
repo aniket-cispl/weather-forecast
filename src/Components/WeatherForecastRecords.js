@@ -50,13 +50,14 @@ function WeatherForecastRecords({ forecast, apiIconPath, days, months }) {
                 <CardTitle tag="h6" className={item.isToday ? "text-primary" : "text-dark"}><small>{item.day}</small></CardTitle>
                 <CardTitle tag="h5" className={item.isToday ? "text-primary" : "text-dark"}>{months[(item.month-1)]} {item.date}</CardTitle>
                 <CardSubtitle></CardSubtitle>
-                <CardSubtitle><small><img top width="50px" src={item.icon} alt="Card image cap" /> {item.main} <span className="text-muted">({item.temperature}°)</span></small></CardSubtitle>
+                <CardSubtitle><small><img top width="50px" src={item.icon} alt="Card image cap" /> {item.main} <span className="text-muted">({item.temperature}&#176;)</span></small></CardSubtitle>
                 <hr/>
-                <CardText className="mb-2">High: <span className="text-muted">{item.highestTemp}°</span></CardText>
-                <CardText className="mb-2">Low: <span className="text-muted">{item.lowestTemp}°</span></CardText>
+                <CardText className="mb-2">High: <span className="text-muted">{item.highestTemp}&#176;</span></CardText>
+                <CardText className="mb-2">Low: <span className="text-muted">{item.lowestTemp}&#176;</span></CardText>
                 <CardText className="mb-2">Pressure: <span className="text-muted">{item.pressure}</span></CardText>
-                <CardText className="mb-2">Humidity: <span className="text-muted">{item.humidity}</span></CardText>
-                <CardText className="mb-2">Wind Speed: <span className="text-muted">{item.temperature} mph</span></CardText>
+                <CardText className="mb-2">Precipitation: <span className="text-muted">{item.humidity}%</span></CardText>
+                <CardText className="mb-2">Wind Speed: <span className="text-muted">{item.temperature}mph</span></CardText>
+                <CardText className="mb-2">Cloud Cover: <span className="text-muted">{item.clouds}</span></CardText>
               </CardBody>
             </Card>
           ))
